@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+	<html>
+
+	<head>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	</head>
+
+	<body style="margin: 0% 20%;">
+
+	<div class = "container">
+
+		<div class = "row">
+
+			<div class = "col-xs-12 col-sm-12 col-md-12 col-lg-12 myHeader text-center">
+				<header>
+					<h1> HANGMAN GAME </h1>
+				</header>
+			</div>
+
+		</div>
+
+		<div class = "row myGameContainer">
+
+			<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 myPictureContainer bg-success" style="margin: 5% 0%">
+
+			</div>
+
+			<div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 myTextContainer">
+
+				<div class="card text-center bg-faded" style="margin: 10% 0%">
+					<div class="card-body">
+						<h5>And the word is...</h5>
+						<span id="guessWord"></span>
+					</div>
+				</div>
+
+				<div class="card text-center bg-faded" style="margin: 10% 0%">
+					<div class="card-body">
+						<h5>You have this many guesses....</h5>
+						<span id="guessLeft"></span>
+					</div>
+				</div>
+
+				<div class="card text-center bg-faded" style="margin: 10% 0%">
+					<div class="card-body">
+						<h5> You have guessed these letters....</h5>
+						<span id="guessedLetters"></span>
+					</div>
+				</div>
+
+				<div class="card text-center bg-faded" style="margin: 10% 0%">
+					<div class="card-body">
+						<h5>You've won this many times....</h5>
+						<span id="wins"></span>
+					</div>
+				</div>
+
+				<div class="card text-center bg-faded" style="margin: 10% 0%">
+					<div class="card-body">
+						<h5>You've lost this many times....</h5>
+						<span id="loser"></span>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<script type = "text/javascript" src = "javascript.js"></script>
+
+	</body>
+
+	</html>
