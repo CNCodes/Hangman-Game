@@ -9,10 +9,10 @@ var gamePlaying = false;
 
 var blankLetterArray = [];
 
-var hangmanWordArray = ["alligator", "zebra", "lion"];
+var hangmanWordArray = ["alligator", "zebra", "lion", "peacock", "whale", "honeybee", "tortoise", "hyena", "lamprey"];
 
 var lettersToChoose = ["a", "b", "c","d","e","f","g","h","i",
-					       "j", "h", "j", "k", "l", "m", "n",
+					       "j", "k", "l", "m", "n",
 					       "o", "p", "q", "r", "s", "t", "u", "v",
 					       "w", "x", "y", "z"];
 
@@ -24,8 +24,26 @@ var wordLength;
 
 var closeToWin = 0;
 
+var gameOver = false;
+
+function resetMe() {
+	gamePlaying = false;
+	gameOver = false;
+	lettersToChoose = ["a", "b", "c","d","e","f","g","h","i",
+					   "j", "k", "l", "m", "n",
+					   "o", "p", "q", "r", "s", "t", "u", "v",
+					   "w", "x", "y", "z"];
+	lettersChosen = [];
+	blankLetterArray = [];
+	closeToWin = 0;
+	guesses = 13;
+}
+
 document.onkeyup = function(event){
 
+if(gameOver === true){
+	resetMe();
+}
 
 
 if (gamePlaying == false){
@@ -87,6 +105,7 @@ if (gamePlaying == true) {
 		alert("You win the game!");
 		wins++;
 		guesses = 13;
+		gameOver = true;
 
 	}
 		
@@ -94,6 +113,7 @@ if (gamePlaying == true) {
 		alert("You lose");
 		losses++;
 		guesses = 13;
+		gameOver = true;
 	}
 
 	console.log(lettersChosen);
