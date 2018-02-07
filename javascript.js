@@ -39,16 +39,7 @@ function resetMe() {
 	guesses = 13;
 }
 
-document.onkeyup = function(event){
-
-if(gameOver === true){
-	resetMe();
-}
-
-
-if (gamePlaying == false){
-
-
+function initializeGame() {
 	var userSelect = event.key;
 	
 
@@ -65,14 +56,12 @@ if (gamePlaying == false){
 
 		}
 
-		guesses = guesses - 1;
 		gamePlaying = true;
 
 	}
 
-if (gamePlaying == true) {
-
-	userSelect = event.key;
+function playGame(){
+		userSelect = event.key;
 
 	for(var i = 0; i < lettersToChoose.length; i++){
 
@@ -99,6 +88,21 @@ if (gamePlaying == true) {
 	guesses = guesses - 1;
 } 	
 }
+}
+
+document.onkeyup = function(event){
+
+if(gameOver === true){
+	resetMe();
+}
+
+
+if (gamePlaying == false){
+	initializeGame();
+}
+
+if (gamePlaying == true) {
+	playGame();
 }
 
 	if (closeToWin == wordLength) {
