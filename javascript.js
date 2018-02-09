@@ -5,13 +5,13 @@ var vaquitaInfo = "The vaquita is a rarely seen critically endangered porpoise s
 
 var elephantInfo = "The elephant is an icon of the African wilderness, with some species being very close to extinction, many are poached due to an ever booming ivory trade in many Eastern countries such as China.";
 
-var macawInfo = "a victim of the exotic pet trade, as well as habitat loss. Macaw are a large, beatifully colored group of parrots that are more likely to be seen on someone's shoulder than in their natural habitat in Central and South America";
+var macawInfo = "A victim of the exotic pet trade, as well as habitat loss. Macaw are a large, beatifully colored group of parrots that are more likely to be seen on someone's shoulder than in their natural habitat in Central and South America";
 
-var pangolinInfo = "the pangolin is an insectivorous animal that has had its numbers dwindle due to its popularity in Africa as food, known as Bush meat, as well as high trafficing to countries like china where it is seen as a delicacy with medicinal properties";
+var pangolinInfo = "The pangolin is an insectivorous animal that has had its numbers dwindle due to its popularity in Africa as food, known as Bush meat, as well as high trafficing to countries like china where it is seen as a delicacy with medicinal properties";
 
 var gorillaInfo = "The largest of the primates, the gorilla is endangered mostly due to poaching and habitat loss, with one species having a population of only 800 individuals";
 
-var turtleInfo = "Many sea turtles face extinction due to very special reproduction habits. by choosing only specific beaches to lay their egss, turtles are often eaten before they can make it to the sea. New development in these areas can also cause babies to go the opposite direction of the ocean and die ";
+var turtleInfo = "Many sea turtles face extinction due to very special reproduction habits. By choosing only specific beaches to lay their egss, turtles are often eaten before they can make it to the sea. New development in these areas can also cause babies to go the opposite direction of the ocean and die ";
 
 var tigerInfo = "With some species already extinct, tigers have seen a great decline in numbers over the years due to habitat loss and high levels of poaching for their striped furs";
 
@@ -83,7 +83,7 @@ function resetMe() {
 function initializeGame() {
 	var userSelect = event.key;
 	
-	randomNumber = Math.floor(Math.random()*hangmanWordArray.length) + 1;
+	randomNumber = Math.floor(Math.random()*hangmanWordArray.length);
 
 	computerSelect = hangmanWordArray[randomNumber];
 
@@ -156,30 +156,33 @@ if (gamePlaying == true) {
 	document.getElementById('guessWord').innerHTML = blankLetterArray.join("");
 	document.getElementById('guessLeft').innerHTML = guesses;
 	document.getElementById('guessedLetters').innerHTML = lettersChosen.join("");
-	document.getElementById('wins').innerHTML = wins;
-	document.getElementById('loser').innerHTML = losses;
 
-		if (closeToWin == wordLength) {
-		alert("You win the game!");
+
+	if (closeToWin == wordLength) {
 		wins++;
 		guesses = 13;
 		gameOver = true;
 		document.getElementById('changingImage').src = imageSelect;
 		document.getElementById('animalFacts').innerHTML = infoSelect;
+		document.getElementById('wins').innerHTML = wins;
+	    document.getElementById('loser').innerHTML = losses;
+	}
 
+	if(closeToWin == wordLength) {
+		setTimeout(function(){ alert("You Won!!"); }, 250);
 	}
 		
 	if (guesses == 0) {
-		alert("You lose");
 		losses++;
 		guesses = 13;
 		gameOver = true;
 		document.getElementById('guessWord').innerHTML = computerSelect;
 		document.getElementById('changingImage').src = imageSelect;
 		document.getElementById('animalFacts').innerHTML = infoSelect;
+		document.getElementById('wins').innerHTML = wins;
+		document.getElementById('loser').innerHTML = losses;
+		setTimeout(function(){ alert("You Lose!!"); }, 250);
 	}
-
-
 
 }
 
